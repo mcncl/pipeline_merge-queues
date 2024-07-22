@@ -1,5 +1,5 @@
 notify:
-  - github_commit_status::
+  - github_commit_status:
       context: "reticluting splines"
 
 steps:
