@@ -7,7 +7,7 @@ steps:
     command: |
       sleep 60
       echo "Hello, $BUILDKITE_BUILD_CREATOR!"
-  - wait: ~
+  - block: Build?
   - label: "🧱 Building app"
     command: |
       aws sts get-caller-identity
