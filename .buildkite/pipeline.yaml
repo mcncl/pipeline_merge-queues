@@ -1,0 +1,17 @@
+steps:
+  - label: ":wave: Hello, world!"
+    command: |
+      sleep 60
+      echo "Hello, $BUILDKITE_BUILD_CREATOR!"
+  - wait: ~
+  - label: "🧱 Building app"
+    command: |
+      aws sts get-caller-identity
+    plugins:
+      - aws-assume-role-with-web-identity:
+          role-arn: arn:aws:iam::253213882263:role/benmc_testing_oidc
+  - wait: ~
+  - label: ":wave: Goodbye!"
+    command: |  
+      sleep 60
+      echo "Goodbye, $BUILDKITE_BUILD_CREATOR!"
